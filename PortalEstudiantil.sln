@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalEstudiantil.EntidadesDeNegocio", "PortalEstudiantil.EntidadesDeNegocio\PortalEstudiantil.EntidadesDeNegocio.csproj", "{EA71649A-D10A-420D-BE25-937D0D216B57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalEstudiantil.AccesoADatos", "PortalEstudiantil.AccesoADatos\PortalEstudiantil.AccesoADatos.csproj", "{31D80171-519D-4D3A-842B-7200C8B7688A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalEstudiantil.LogicaDeNegocio", "PortalEstudiantil.LogicaDeNegocio\PortalEstudiantil.LogicaDeNegocio.csproj", "{26AB39D5-4F6A-4BEC-B7A7-84AB6D99295B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalEstudiantil.PruebasUnitarias", "PortalEstudiantil.PruebasUnitarias\PortalEstudiantil.PruebasUnitarias.csproj", "{99AAD9D5-120C-4CE5-A453-6ABDF8116CDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalEstudiantil.WebAPI", "PortalEstudiantil.WebAPI\PortalEstudiantil.WebAPI.csproj", "{59B840A5-E806-4664-ABB9-6690E193F4A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA71649A-D10A-420D-BE25-937D0D216B57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA71649A-D10A-420D-BE25-937D0D216B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA71649A-D10A-420D-BE25-937D0D216B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA71649A-D10A-420D-BE25-937D0D216B57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31D80171-519D-4D3A-842B-7200C8B7688A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31D80171-519D-4D3A-842B-7200C8B7688A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31D80171-519D-4D3A-842B-7200C8B7688A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31D80171-519D-4D3A-842B-7200C8B7688A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26AB39D5-4F6A-4BEC-B7A7-84AB6D99295B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26AB39D5-4F6A-4BEC-B7A7-84AB6D99295B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26AB39D5-4F6A-4BEC-B7A7-84AB6D99295B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26AB39D5-4F6A-4BEC-B7A7-84AB6D99295B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99AAD9D5-120C-4CE5-A453-6ABDF8116CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99AAD9D5-120C-4CE5-A453-6ABDF8116CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99AAD9D5-120C-4CE5-A453-6ABDF8116CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99AAD9D5-120C-4CE5-A453-6ABDF8116CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59B840A5-E806-4664-ABB9-6690E193F4A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59B840A5-E806-4664-ABB9-6690E193F4A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59B840A5-E806-4664-ABB9-6690E193F4A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59B840A5-E806-4664-ABB9-6690E193F4A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BDF0925-B417-48AB-86B3-DEDECA78FF6A}
+	EndGlobalSection
+EndGlobal
