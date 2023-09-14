@@ -92,12 +92,10 @@ namespace PortalEstudiantil.WebAPI.Controllers
             var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             string strHorario = JsonSerializer.Serialize(pHorario);
             Horario horario = JsonSerializer.Deserialize<Horario>(strHorario, option);
-            //docente
             var horarios = await horarioBL.BuscarIncluirDocenteAsync(horario);
             horarios.ForEach(s => s.Docente.horario = null); // Evitar la redundacia de datos
             return horarios;
-            //grado
-            //materia
+           
             
         }
         public async Task<List<Horario>> BuscarMateria([FromBody] object pHorario)
@@ -106,8 +104,7 @@ namespace PortalEstudiantil.WebAPI.Controllers
             var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             string strHorario = JsonSerializer.Serialize(pHorario);
             Horario horario = JsonSerializer.Deserialize<Horario>(strHorario, option);
-            //docente
-            var horarios = await horarioBL.BuscarIncluirDocenteAsync(horario);
+            var horarios = await horarioBL.BuscarIncluirMateriaAsync(horario);
             horarios.ForEach(s => s.Materia.horario = null); // Evitar la redundacia de datos
             return horarios;
             //grado
@@ -120,12 +117,10 @@ namespace PortalEstudiantil.WebAPI.Controllers
             var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             string strHorario = JsonSerializer.Serialize(pHorario);
             Horario horario = JsonSerializer.Deserialize<Horario>(strHorario, option);
-            //docente
-            var horarios = await horarioBL.BuscarIncluirDocenteAsync(horario);
+            var horarios = await horarioBL.BuscarIncluirGradoAsync(horario);
             horarios.ForEach(s => s.Grado.horario = null); // Evitar la redundacia de datos
             return horarios;
-            //grado
-            //materia
+            
 
         }
 
