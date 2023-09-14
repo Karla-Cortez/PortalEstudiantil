@@ -21,5 +21,6 @@ namespace PortalEstudiantil.EntidadesDeNegocio
         [NotMapped]
         public int Top_Aux { get; set; }
         public List<Docente> docente { get; set; }
+        public List<Horario> horario { get; set; }
     }
 }

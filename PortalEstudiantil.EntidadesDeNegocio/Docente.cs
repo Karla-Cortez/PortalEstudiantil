@@ -73,6 +73,7 @@ namespace PortalEstudiantil.EntidadesDeNegocio
         public Materia Materia { get; set; }
         public Ciclo Ciclo { get; set; }
         public Turno Turno { get; set; }
+        public List<Horario> horario { get; set; }
 
         [NotMapped]
         public int Top_Aux { get; set; }

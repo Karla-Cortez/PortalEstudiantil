@@ -23,6 +23,7 @@ namespace PortalEstudiantil.EntidadesDeNegocio
 
         //public List<Docente> docente { get; set; }
         public List<Estudiante> estudiante { get; set; }
+        public List<Horario> horario { get; set; }
 
     }
 }
