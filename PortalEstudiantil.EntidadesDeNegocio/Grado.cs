@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace PortalEstudiantil.EntidadesDeNegocio
 {
@@ -22,7 +23,9 @@ namespace PortalEstudiantil.EntidadesDeNegocio
         public int Top_Aux { get; set; }
 
         //public List<Docente> docente { get; set; }
+        [ValidateNever]
         public List<Estudiante> estudiante { get; set; }
+        [ValidateNever]
         public List<Horario> horario { get; set; }
 
     }

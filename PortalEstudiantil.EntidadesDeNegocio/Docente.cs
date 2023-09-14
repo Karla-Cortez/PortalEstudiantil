@@ -71,9 +71,13 @@ namespace PortalEstudiantil.EntidadesDeNegocio
 
         [ValidateNever]
         public Rol Rol { get; set; }
+        [ValidateNever]
         public Materia Materia { get; set; }
+        [ValidateNever]
         public Ciclo Ciclo { get; set; }
+        [ValidateNever]
         public Turno Turno { get; set; }
+        [ValidateNever]
         public List<Horario> horario { get; set; }
 
         [NotMapped]

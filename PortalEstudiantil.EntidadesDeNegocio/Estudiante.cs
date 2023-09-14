@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace PortalEstudiantil.EntidadesDeNegocio
 {
@@ -55,9 +56,9 @@ namespace PortalEstudiantil.EntidadesDeNegocio
         [Display(Name = "Telefono")]
         public Int32 Telefono { get; set; }
 
-
+        [ValidateNever]
         public Grado Grado { get; set; }
-
+        [ValidateNever]
         public Turno Turno { get; set; }
 
         [NotMapped]
