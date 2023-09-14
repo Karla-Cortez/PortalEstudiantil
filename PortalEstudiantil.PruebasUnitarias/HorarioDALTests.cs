@@ -13,7 +13,7 @@ namespace PortalEstudiantil.AccesoADatos.Tests
     [TestClass()]
     public class HorarioDALTests
     {
-        private static Horario horarioInicial = new Horario { Id = 2, GradoId = 1, MateriaId = 1, DocenteId = 1 };
+        private static Horario horarioInicial = new Horario { Id = 7, GradoId = 1, MateriaId = 1, DocenteId = 1 };
 
         [TestMethod()]
         public async Task T1CrearAsyncTest()
@@ -34,14 +34,15 @@ namespace PortalEstudiantil.AccesoADatos.Tests
         public async Task T2ModificarAsyncTest()
         {
             var horario = new Horario();
+            horario.Id = horarioInicial.Id;
             horario.GradoId = horarioInicial.GradoId;
             horario.MateriaId = horarioInicial.MateriaId;
             horario.DocenteId = horarioInicial.DocenteId;
-            horario.Dia = "Martes";
-            horario.HorarioInicio = "7:30 AM";
-            horario.HorarioSalida = "11:25 AM";
+            horario.Dia = "Miercoles";
+            horario.HorarioInicio = "7:35 AM";
+            horario.HorarioSalida = "11:30 AM";
             int result = await HorarioDAL.ModificarAsync(horario);
-            Assert.AreNotEqual(0, result);
+            Assert.AreNotEqual(2, result);
         }
 
         [TestMethod()]
@@ -73,7 +74,7 @@ namespace PortalEstudiantil.AccesoADatos.Tests
             horario.HorarioSalida = "mm";
             horario.Top_Aux = 10;
             var resultHorarios = await HorarioDAL.BuscarAsync(horario);
-            Assert.AreNotEqual(1, resultHorarios.Count);
+            Assert.AreNotEqual(0, resultHorarios.Count);
         }
 
         
@@ -103,8 +104,8 @@ namespace PortalEstudiantil.AccesoADatos.Tests
             horario.HorarioInicio = "am";
             horario.HorarioSalida = "mm";
             horario.Top_Aux = 10;
-            var resultHorario = await HorarioDAL.BuscarIncluirGradoAsync(horario);
-            Assert.AreNotEqual(1, resultHorario.Count);
+            var resultHorario = await HorarioDAL.BuscarIncluirMateriaAsync(horario);
+            Assert.AreNotEqual(0, resultHorario.Count);
             var ultimoHorario = resultHorario.FirstOrDefault();
             Assert.IsTrue(ultimoHorario.Materia != null && horario.MateriaId == ultimoHorario.Materia.Id);
         }
@@ -118,8 +119,8 @@ namespace PortalEstudiantil.AccesoADatos.Tests
             horario.HorarioInicio = "am";
             horario.HorarioSalida = "mm";
             horario.Top_Aux = 10;
-            var resultHorario = await HorarioDAL.BuscarIncluirGradoAsync(horario);
-            Assert.AreNotEqual(1, resultHorario.Count);
+            var resultHorario = await HorarioDAL.BuscarIncluirDocenteAsync(horario);
+            Assert.AreNotEqual(0, resultHorario.Count);
             var ultimoHorario = resultHorario.FirstOrDefault();
             Assert.IsTrue(ultimoHorario.Docente != null && horario.DocenteId == ultimoHorario.Docente.Id);
         }

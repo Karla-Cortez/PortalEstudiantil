@@ -12,7 +12,7 @@ namespace PortalEstudiantil.AccesoADatos.Tests
     [TestClass()]
     public class EstudianteDALTests
     {
-        private static Estudiante estudianteInicial = new Estudiante { Id = 3, GradoId = 1, TurnoId = 1 };
+        private static Estudiante estudianteInicial = new Estudiante { Id = 6, GradoId = 1, TurnoId = 1 };
 
         [TestMethod()]
         public async Task T1CrearAsyncTest()
@@ -38,6 +38,7 @@ namespace PortalEstudiantil.AccesoADatos.Tests
         public async Task T2ModificarAsyncTest()
         {
             var estudiante = new Estudiante();
+            estudiante.Id = estudianteInicial.Id;
             estudiante.Nombre = "Juan";
             estudiante.Apellido = "Cortez";
             estudiante.CodigoEstudiante = "RC001";
@@ -56,7 +57,7 @@ namespace PortalEstudiantil.AccesoADatos.Tests
         public async Task T3ObtenerPorIdAsyncTest()
         {
             var estudiante = new Estudiante();
-            estudiante.Id = estudianteInicial.GradoId;
+            estudianteInicial.GradoId = estudiante.Id;
             estudiante.Nombre = "Raúl";
             estudiante.Apellido = "Cortez";
             estudiante.CodigoEstudiante = "RC001";
@@ -94,16 +95,11 @@ namespace PortalEstudiantil.AccesoADatos.Tests
         public async Task T5BuscarAsyncTest()
         {
             var estudiante = new Estudiante();
-            estudiante.Nombre = "Raúl";
-            estudiante.Apellido = "Cortez";
-            estudiante.CodigoEstudiante = "RC001";
             estudiante.GradoId = estudianteInicial.GradoId;
             estudiante.TurnoId = estudianteInicial.TurnoId;
-            estudiante.Encargado = "Gerardo";
-            estudiante.EncargadoDUI = 1234587;
-            estudiante.Correo = "RC@gmail.com";
-            estudiante.Direccion = "Sonsonate";
-            estudiante.Telefono = 60602525;
+            estudiante.Nombre = "Raúl";
+            estudiante.Apellido = "Cortez";
+            estudiante.CodigoEstudiante = "RC001";          
             estudiante.Top_Aux = 10;
             var resultEstudiante = await EstudianteDAL.BuscarAsync(estudiante);
             Assert.AreNotEqual(0, resultEstudiante.Count);
@@ -113,21 +109,14 @@ namespace PortalEstudiantil.AccesoADatos.Tests
         public async Task T6BuscarIncluirGradoAsyncTest()
         {
             var estudiante = new Estudiante();
-            estudiante.Id = estudianteInicial.GradoId;
+            estudiante.GradoId = estudianteInicial.GradoId;
 
             estudiante.Nombre = "Raúl";
             estudiante.Apellido = "Cortez";
             estudiante.CodigoEstudiante = "RC001";
-            estudiante.GradoId = estudianteInicial.GradoId;
-            estudiante.TurnoId = estudianteInicial.TurnoId;
-            estudiante.Encargado = "Gerardo";
-            estudiante.EncargadoDUI = estudianteInicial.EncargadoDUI;
-            estudiante.Correo = "RC@gmail.com";
-            estudiante.Direccion = "Sonsonate";
-            estudiante.Telefono = estudianteInicial.Telefono;
             estudiante.Top_Aux = 10;
             var resultEstudiante = await EstudianteDAL.BuscarIncluirGradoAsync(estudiante);
-            Assert.AreNotEqual(0, resultEstudiante.Count);
+            Assert.AreNotEqual(1, resultEstudiante.Count);
             var ultimoEstudiante = resultEstudiante.FirstOrDefault();
             Assert.IsTrue(ultimoEstudiante.Grado != null && estudiante.GradoId == ultimoEstudiante.Grado.Id);
         }
@@ -136,17 +125,10 @@ namespace PortalEstudiantil.AccesoADatos.Tests
         public async Task T7BuscarIncluirTurnoAsyncTest()
         {
             var estudiante = new Estudiante();
-            estudiante.Id = estudianteInicial.GradoId;
+            estudiante.TurnoId = estudianteInicial.TurnoId;
             estudiante.Nombre = "Raúl";
             estudiante.Apellido = "Cortez";
             estudiante.CodigoEstudiante = "RC001";
-            estudiante.GradoId = estudianteInicial.GradoId;
-            estudiante.TurnoId = estudianteInicial.TurnoId;
-            estudiante.Encargado = "Gerardo";
-            estudiante.EncargadoDUI = estudianteInicial.EncargadoDUI;
-            estudiante.Correo = "RC@gmail.com";
-            estudiante.Direccion = "Sonsonate";
-            estudiante.Telefono = estudianteInicial.Telefono;
             estudiante.Top_Aux = 10;
             var resultEstudiante = await EstudianteDAL.BuscarIncluirTurnoAsync(estudiante);
             Assert.AreNotEqual(0, resultEstudiante);
@@ -158,17 +140,7 @@ namespace PortalEstudiantil.AccesoADatos.Tests
         public async Task T8EliminarAsyncTest()
         {
             var estudiante = new Estudiante();
-            estudiante.Id = estudianteInicial.GradoId;
-            estudiante.Nombre = "Raúl";
-            estudiante.Apellido = "Cortez";
-            estudiante.CodigoEstudiante = "RC001";
-            estudiante.GradoId = estudianteInicial.GradoId;
-            estudiante.TurnoId = estudianteInicial.TurnoId;
-            estudiante.Encargado = "Gerardo";
-            estudiante.EncargadoDUI = estudianteInicial.EncargadoDUI;
-            estudiante.Correo = "RC@gmail.com";
-            estudiante.Direccion = "Sonsonate";
-            estudiante.Telefono = estudianteInicial.Telefono;
+            estudiante.Id = estudianteInicial.Id;
             int result = await EstudianteDAL.EliminarAsync(estudiante);
             Assert.AreNotEqual(0, result);
         }

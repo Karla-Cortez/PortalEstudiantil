@@ -48,8 +48,8 @@ namespace PortalEstudiantil.AccesoADatos
             int result = 0;
             using (var bdContexto = new BDContexto())
             {
-                var estudiante = await bdContexto.Grado.FirstOrDefaultAsync(s => s.Id == pEstudiante.Id);
-                bdContexto.Grado.Remove(estudiante);
+                var estudiante = await bdContexto.Estudiante.FirstOrDefaultAsync(s => s.Id == pEstudiante.Id);
+                bdContexto.Estudiante.Remove(estudiante);
                 result = await bdContexto.SaveChangesAsync();
             }
             return result;
@@ -79,26 +79,37 @@ namespace PortalEstudiantil.AccesoADatos
         {
             if (pEstudiante.Id > 0)
                 pQuery = pQuery.Where(s => s.Id == pEstudiante.Id);
+
             if (!string.IsNullOrWhiteSpace(pEstudiante.Nombre))
                 pQuery = pQuery.Where(s => s.Nombre.Contains(pEstudiante.Nombre));
+
             if (!string.IsNullOrWhiteSpace(pEstudiante.Apellido))
                 pQuery = pQuery.Where(s => s.Apellido.Contains(pEstudiante.Apellido));
+
             if (!string.IsNullOrWhiteSpace(pEstudiante.CodigoEstudiante))
                 pQuery = pQuery.Where(s => s.CodigoEstudiante.Contains(pEstudiante.CodigoEstudiante));
+
             if (pEstudiante.GradoId > 0)
                 pQuery = pQuery.Where(s => s.GradoId == pEstudiante.GradoId);
+
             if (pEstudiante.TurnoId > 0)
                 pQuery = pQuery.Where(s => s.TurnoId == pEstudiante.TurnoId);
+
             if (!string.IsNullOrWhiteSpace(pEstudiante.Encargado))
                 pQuery = pQuery.Where(s => s.Encargado.Contains(pEstudiante.Encargado));
+
             if (pEstudiante.EncargadoDUI > 0)
                 pQuery = pQuery.Where(s => s.Id == pEstudiante.EncargadoDUI);
+
             if (!string.IsNullOrWhiteSpace(pEstudiante.Correo))
                 pQuery = pQuery.Where(s => s.Correo.Contains(pEstudiante.Correo));
+
             if (!string.IsNullOrWhiteSpace(pEstudiante.Direccion))
                 pQuery = pQuery.Where(s => s.Direccion.Contains(pEstudiante.Direccion));
+
             if (pEstudiante.Telefono > 0)
                 pQuery = pQuery.Where(s => s.Id == pEstudiante.Telefono);
+
             pQuery = pQuery.OrderByDescending(s => s.Id).AsQueryable();
             if (pEstudiante.Top_Aux > 0)
                 pQuery = pQuery.Take(pEstudiante.Top_Aux).AsQueryable();

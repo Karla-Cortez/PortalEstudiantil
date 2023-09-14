@@ -32,7 +32,6 @@ namespace PortalEstudiantil.AccesoADatos
                 horario.Dia = pHorario.Dia;
                 horario.HorarioInicio = pHorario.HorarioInicio;
                 horario.HorarioSalida = pHorario.HorarioSalida;
-                bdContexto.Horario.Remove(horario);
                 result = await bdContexto.SaveChangesAsync();
             }
             return result;

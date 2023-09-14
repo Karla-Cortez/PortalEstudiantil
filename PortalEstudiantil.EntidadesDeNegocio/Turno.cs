@@ -23,7 +23,7 @@ namespace PortalEstudiantil.EntidadesDeNegocio
         public int Top_Aux { get; set; }
 
         public List<Docente> docente { get; set; }
-        public List<Estudiante> estudiante { get; set; }
+        public List<Estudiante> Estudiante { get; set; }
 
     }
 }
