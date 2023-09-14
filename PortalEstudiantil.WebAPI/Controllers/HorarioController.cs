@@ -98,6 +98,8 @@ namespace PortalEstudiantil.WebAPI.Controllers
            
             
         }
+
+        [HttpPost("BuscarMateria")]
         public async Task<List<Horario>> BuscarMateria([FromBody] object pHorario)
         {
 
@@ -111,6 +113,8 @@ namespace PortalEstudiantil.WebAPI.Controllers
             //materia
 
         }
+
+        [HttpPost("BuscarGrado")]
         public async Task<List<Horario>> BuscarGrado([FromBody] object pHorario)
         {
 

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace PortalEstudiantil.EntidadesDeNegocio
 {
@@ -68,7 +69,7 @@ namespace PortalEstudiantil.EntidadesDeNegocio
         [Display(Name = "Telefono")]
         public Int32 Telefono { get; set; }
 
-
+        [ValidateNever]
         public Rol Rol { get; set; }
         public Materia Materia { get; set; }
         public Ciclo Ciclo { get; set; }

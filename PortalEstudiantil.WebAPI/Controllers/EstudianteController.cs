@@ -92,7 +92,7 @@ namespace PortalEstudiantil.WebAPI.Controllers
             return await estudianteBL.BuscarAsync(estudiante);
         }
 
-        [HttpPost("Buscar")]
+        [HttpPost("BuscarGrado")]
         public async Task<List<Estudiante>> BuscarGrado([FromBody] object pEstudiante)
         {
 
@@ -105,7 +105,7 @@ namespace PortalEstudiantil.WebAPI.Controllers
         }
 
 
-        [HttpPost("Buscar")]
+        [HttpPost("BuscarTurno")]
         public async Task<List<Estudiante>> BuscarTurno([FromBody] object pEstudiante)
         {
 
