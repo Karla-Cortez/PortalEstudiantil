@@ -12,7 +12,7 @@ namespace PortalEstudiantil.LogicaDeNegocio
     {
         public async Task<int> CrearAsync(Turno pTurno)
         {
-            return await TurnoDAL.CrearAsync(pTurno;
+            return await TurnoDAL.CrearAsync(pTurno);
         }
 
         public async Task<int> ModificarAsync(Turno pTurno)
