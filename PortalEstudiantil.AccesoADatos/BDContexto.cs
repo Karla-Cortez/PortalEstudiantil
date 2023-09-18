@@ -23,7 +23,7 @@ namespace PortalEstudiantil.AccesoADatos
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //Jonathan
-            //optionsBuilder.UseSqlServer(@"Data Source=JONATHAN;Initial Catalog=PortalEstudiantilDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            optionsBuilder.UseSqlServer(@"Data Source=JONATHAN;Initial Catalog=PortalEstudiantilDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
             //Frank
             //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-46UEJO3;Initial Catalog=PortalEstudiantilDB;Integrated Security=True; Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False") ;
             //Maura

@@ -100,7 +100,7 @@ namespace PortalEstudiantil.WebAPI.Controllers
             string strEstudiante = JsonSerializer.Serialize(pEstudiante);
             Estudiante estudiante = JsonSerializer.Deserialize<Estudiante>(strEstudiante, option);
             var estudiantes = await estudianteBL.BuscarIncluirGradoAsync(estudiante);
-            estudiantes.ForEach(s => s.Grado.estudiante = null); // Evitar la redundacia de datos
+            estudiantes.ForEach(s => s.Grado.Estudiante = null); // Evitar la redundacia de datos
             return estudiantes;
         }
 

@@ -24,7 +24,7 @@ namespace PortalEstudiantil.EntidadesDeNegocio
 
         //public List<Docente> docente { get; set; }
         [ValidateNever]
-        public List<Estudiante> estudiante { get; set; }
+        public List<Estudiante> Estudiante { get; set; }
         [ValidateNever]
         public List<Horario> horario { get; set; }
 
