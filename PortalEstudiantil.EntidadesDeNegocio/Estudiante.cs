@@ -56,13 +56,14 @@ namespace PortalEstudiantil.EntidadesDeNegocio
         [Display(Name = "Telefono")]
         public Int32 Telefono { get; set; }
 
+        [NotMapped]
+        public int Top_Aux { get; set; }
         [ValidateNever]
         public Grado Grado { get; set; }
         [ValidateNever]
         public Turno Turno { get; set; }
 
-        [NotMapped]
-        public int Top_Aux { get; set; }
+        
 
     }
 
