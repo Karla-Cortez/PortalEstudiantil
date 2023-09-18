@@ -27,7 +27,6 @@ namespace PortalEstudiantil.AccesoADatos
             {
                 var turno = await bdContexto.Turno.FirstOrDefaultAsync(s => s.Id == pTurno.Id);
                 turno.Nombre = pTurno.Nombre;
-                bdContexto.Turno.Remove(turno);
                 result = await bdContexto.SaveChangesAsync();
             }
             return result;

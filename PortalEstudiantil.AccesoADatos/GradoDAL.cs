@@ -28,7 +28,6 @@ namespace PortalEstudiantil.AccesoADatos
             {
                 var grado = await bdContexto.Grado.FirstOrDefaultAsync(s => s.Id == pGrado.Id);
                 grado.Nombre = pGrado.Nombre;
-                bdContexto.Grado.Remove(grado);
                 result = await bdContexto.SaveChangesAsync();
             }
             return result;

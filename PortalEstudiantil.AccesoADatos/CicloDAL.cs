@@ -28,7 +28,6 @@ namespace PortalEstudiantil.AccesoADatos
             {
                 var ciclo = await bdContexto.Ciclo.FirstOrDefaultAsync(s => s.Id == pCiclo.Id);
                 ciclo.Nombre = pCiclo.Nombre;
-                bdContexto.Ciclo.Remove(ciclo);
                 result = await bdContexto.SaveChangesAsync();
             }
             return result;

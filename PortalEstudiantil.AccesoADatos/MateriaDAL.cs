@@ -27,7 +27,6 @@ namespace PortalEstudiantil.AccesoADatos
             {
                 var materia = await bdContexto.Materia.FirstOrDefaultAsync(m => m.Id == pMateria.Id);
                 materia.Nombre = pMateria.Nombre;
-                bdContexto.Materia.Remove(materia);
                 result = await bdContexto.SaveChangesAsync();
             }
             return result;
