@@ -29,7 +29,6 @@ namespace PortalEstudiantil.AccesoADatos
             {
                 var rol = await bdContexto.Rol.FirstOrDefaultAsync (s => s.Id == pRol.Id);
                 rol.Nombre = pRol.Nombre;
-                bdContexto.Rol.Remove(rol);
                 result = await bdContexto.SaveChangesAsync ();
             }
             return result;

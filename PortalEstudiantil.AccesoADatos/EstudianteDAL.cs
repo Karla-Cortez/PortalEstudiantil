@@ -37,7 +37,6 @@ namespace PortalEstudiantil.AccesoADatos
                 estudiante.Correo = pEstudiante.Correo;
                 estudiante.Direccion = pEstudiante.Direccion;
                 estudiante.Telefono = pEstudiante.Telefono;
-                bdContexto.Estudiante.Remove(estudiante);
                 result = await bdContexto.SaveChangesAsync();
             }
             return result;
