@@ -35,7 +35,8 @@ namespace PortalEstudiantil.AccesoADatos
             int result = 0;
             using (var bdContexto = new BDContexto())
             {
-                bdContexto.Add(pDocente);
+                EncriptarMD5(pDocente);
+                bdContexto.Add(pDocente);         
                 result = await bdContexto.SaveChangesAsync();
             }
             return result;

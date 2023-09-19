@@ -12,6 +12,7 @@ namespace PortalEstudiantil.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class DocenteController : ControllerBase
     {
         private DocenteBL docenteBL = new DocenteBL();
