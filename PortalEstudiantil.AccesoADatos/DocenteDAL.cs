@@ -147,6 +147,19 @@ namespace PortalEstudiantil.AccesoADatos
             }
             return docentes;
         }
+
+        public static async Task<List<Docente>> BuscarIncluirReferenciasAsync(Docente pDocente)
+        {
+            var docentes = new List<Docente>();
+            using (var bdContexto = new BDContexto())
+            {
+                var select = bdContexto.Docente.AsQueryable();
+                select = QuerySelect(select, pDocente).Include(s => s.Rol).Include(s => s.Materia).Include(s => s.Ciclo).Include(s => s.Turno).AsQueryable();
+                docentes = await select.ToListAsync();
+            }
+            return docentes;
+        }
+
         public static async Task<List<Docente>> BuscarIncluirRolAsync(Docente pDocente)
         {
             var docentes = new List<Docente>();

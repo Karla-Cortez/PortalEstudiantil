@@ -40,6 +40,11 @@ namespace PortalEstudiantil.LogicaDeNegocio
             return await DocenteDAL.BuscarAsync(pDocente);
         }
 
+        public async Task<List<Docente>> BuscarIncluirReferenciasAsync(Docente pDocente)
+        {
+            return await DocenteDAL.BuscarIncluirReferenciasAsync(pDocente);
+        }
+
         public async Task<Docente> LoginAsync(Docente pDocente)
         {
             return await DocenteDAL.LoginAsync(pDocente);

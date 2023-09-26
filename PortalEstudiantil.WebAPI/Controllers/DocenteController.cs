@@ -92,8 +92,11 @@ namespace PortalEstudiantil.WebAPI.Controllers
             var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             string strDocente = JsonSerializer.Serialize(pDocente);
             Docente docente = JsonSerializer.Deserialize<Docente>(strDocente, option);
-            var docentes = await docenteBL.BuscarIncluirCicloAsync(docente);
-            docentes.ForEach(s => s.Ciclo.docente = null); // Evitar la redundacia de datos
+            var docentes = await docenteBL.BuscarIncluirReferenciasAsync(docente);
+            docentes.ForEach(s => s.Ciclo.docente = null);// Evitar la redundacia de datos
+            docentes.ForEach(s => s.Materia.docente = null);
+            docentes.ForEach(s => s.Turno.docente = null);
+            docentes.ForEach(s => s.Rol.Docente = null);
             return docentes;
         }
 

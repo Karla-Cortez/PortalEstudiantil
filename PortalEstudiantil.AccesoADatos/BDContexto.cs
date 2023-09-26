@@ -29,7 +29,7 @@ namespace PortalEstudiantil.AccesoADatos
             //Maura
             optionsBuilder.UseSqlServer(@"Data Source=MAURASAURER;Initial Catalog=PortalEstudiantilDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
             //Karla
-            optionsBuilder.UseSqlServer(@"Data Source=NESS;Initial Catalog=PortalEstudiantilDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            //optionsBuilder.UseSqlServer(@"Data Source=NESS;Initial Catalog=PortalEstudiantilDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
     }
 }
