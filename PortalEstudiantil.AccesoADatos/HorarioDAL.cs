@@ -108,6 +108,17 @@ namespace PortalEstudiantil.AccesoADatos
             }
             return horarios;
         }
+        public static async Task<List<Horario>> BuscarIncluirReferenciasAsync(Horario pHorario)
+        {
+            var horarios = new List<Horario>();
+            using (var bdContexto = new BDContexto())
+            {
+                var select = bdContexto.Horario.AsQueryable();
+                select = QuerySelect(select, pHorario).Include(s => s.Grado).Include(s => s.Materia).Include(s => s.Docente).AsQueryable();
+                horarios = await select.ToListAsync();
+            }
+            return horarios;
+        }
 
         public static async Task<List<Horario>> BuscarIncluirGradoAsync(Horario pHorario)
         {

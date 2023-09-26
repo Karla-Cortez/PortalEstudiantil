@@ -86,47 +86,19 @@ namespace PortalEstudiantil.WebAPI.Controllers
         //Preguntar  y como agregar las demas lllaves foraneas
 
         [HttpPost("Buscar")]
-        public async Task<List<Horario>> BuscarDocente([FromBody] object pHorario)
+        public async Task<List<Horario>> Buscar([FromBody] object pHorario)
         {
 
             var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             string strHorario = JsonSerializer.Serialize(pHorario);
             Horario horario = JsonSerializer.Deserialize<Horario>(strHorario, option);
-            var horarios = await horarioBL.BuscarIncluirDocenteAsync(horario);
+            var horarios = await horarioBL.BuscarIncluirReferenciasAsync(horario);
             horarios.ForEach(s => s.Docente.horario = null); // Evitar la redundacia de datos
+            horarios.ForEach(s => s.Grado.horario = null);
+            horarios.ForEach(s => s.Materia.horario = null);
             return horarios;
            
             
         }
-
-        [HttpPost("BuscarMateria")]
-        public async Task<List<Horario>> BuscarMateria([FromBody] object pHorario)
-        {
-
-            var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            string strHorario = JsonSerializer.Serialize(pHorario);
-            Horario horario = JsonSerializer.Deserialize<Horario>(strHorario, option);
-            var horarios = await horarioBL.BuscarIncluirMateriaAsync(horario);
-            horarios.ForEach(s => s.Materia.horario = null); // Evitar la redundacia de datos
-            return horarios;
-            //grado
-            //materia
-
-        }
-
-        [HttpPost("BuscarGrado")]
-        public async Task<List<Horario>> BuscarGrado([FromBody] object pHorario)
-        {
-
-            var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            string strHorario = JsonSerializer.Serialize(pHorario);
-            Horario horario = JsonSerializer.Deserialize<Horario>(strHorario, option);
-            var horarios = await horarioBL.BuscarIncluirGradoAsync(horario);
-            horarios.ForEach(s => s.Grado.horario = null); // Evitar la redundacia de datos
-            return horarios;
-            
-
-        }
-
     }
 }

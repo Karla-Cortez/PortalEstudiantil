@@ -39,7 +39,10 @@ namespace PortalEstudiantil.LogicaDeNegocio
         {
             return await HorarioDAL.BuscarAsync(pHorario);
         }
-
+        public async Task<List<Horario>> BuscarIncluirReferenciasAsync(Horario pHorario)
+        {
+            return await HorarioDAL.BuscarIncluirReferenciasAsync(pHorario);
+        }
         public async Task<List<Horario>> BuscarIncluirGradoAsync(Horario pHorario)
         {
             return await HorarioDAL.BuscarIncluirGradoAsync(pHorario);
