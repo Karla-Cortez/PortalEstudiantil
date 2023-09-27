@@ -86,16 +86,18 @@ namespace PortalEstudiantil.WebAPI.Controllers
         //Preguntar  y como agregar las demas lllaves foraneas
 
         [HttpPost("Buscar")]
+        [AllowAnonymous]
         public async Task<List<Horario>> Buscar([FromBody] object pHorario)
         {
 
             var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             string strHorario = JsonSerializer.Serialize(pHorario);
             Horario horario = JsonSerializer.Deserialize<Horario>(strHorario, option);
-            var horarios = await horarioBL.BuscarIncluirReferenciasAsync(horario);
+            List<Horario> horarios = await horarioBL.BuscarIncluirReferenciasAsync(horario);
             horarios.ForEach(s => s.Docente.horario = null); // Evitar la redundacia de datos
             horarios.ForEach(s => s.Grado.horario = null);
             horarios.ForEach(s => s.Materia.horario = null);
+            horarios.ForEach(s => s.Docente.Materia = null);
             return horarios;
            
             

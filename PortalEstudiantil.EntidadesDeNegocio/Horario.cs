@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Newtonsoft.Json;
 
 namespace PortalEstudiantil.EntidadesDeNegocio
 {
@@ -40,16 +41,20 @@ namespace PortalEstudiantil.EntidadesDeNegocio
 
         [NotMapped]
         public int Top_Aux { get; set; }
+
         [ValidateNever]
         public Grado Grado { get; set; }
+
         [ValidateNever]
         public Materia Materia { get; set; }
-        [ValidateNever]
-        public Docente Docente { get; set; }
-        
 
-        
-      
+        [ValidateNever]      
+        public Docente Docente { get; set; }
+
+       
+
+
+
 
     }
 }
